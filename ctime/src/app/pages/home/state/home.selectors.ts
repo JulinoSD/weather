@@ -3,7 +3,15 @@ import { HomeState } from './home.reducer';
 
 export const selectHomeState = createFeatureSelector('home')
 
-export const selectHomeText = createSelector(
+export const selectCurrentWeather = createSelector(
   selectHomeState,
-  (homeState: HomeState) => homeState.text
+  (homeState: HomeState) => homeState.entity
+)
+export const selectCurrentWeatherLoading = createSelector(
+  selectHomeState,
+  (homeState: HomeState) => homeState.load
+)
+export const selectCurrentWeatherFailed = createSelector(
+  selectHomeState,
+  (homeState: HomeState) => homeState.error
 )
